@@ -1,0 +1,55 @@
+#Suarez sh
+#GitHub:https://github.com/Suarezsh/
+import tkinter as tk
+ventana = tk.Tk()
+ventana.title("Calculator-Sh")
+pantalla = tk.Entry(ventana, width=30)
+pantalla.grid(row=0, column=0, columnspan=4)
+def clic_en_boton(valor):
+    actual = pantalla.get()
+    pantalla.delete(0, tk.END)
+    pantalla.insert(tk.END, actual + str(valor))
+def clic_en_igual():
+    try:
+        resultado = eval(pantalla.get())
+        pantalla.delete(0, tk.END)
+        pantalla.insert(tk.END, resultado)
+    except:
+        pantalla.delete(0, tk.END)
+        pantalla.insert(tk.END, "Error")
+
+boton_1 = tk.Button(ventana, text="1", padx=20, pady=10, command=lambda: clic_en_boton(1))
+boton_2 = tk.Button(ventana, text="2", padx=20, pady=10, command=lambda: clic_en_boton(2))
+boton_3 = tk.Button(ventana, text="3", padx=20, pady=10, command=lambda: clic_en_boton(3))
+boton_4 = tk.Button(ventana, text="4", padx=20, pady=10, command=lambda: clic_en_boton(4))
+boton_5 = tk.Button(ventana, text="5", padx=20, pady=10, command=lambda: clic_en_boton(5))
+boton_6 = tk.Button(ventana, text="6", padx=20, pady=10, command=lambda: clic_en_boton(6))
+boton_7 = tk.Button(ventana, text="7", padx=20, pady=10, command=lambda: clic_en_boton(7))
+boton_8 = tk.Button(ventana, text="8", padx=20, pady=10, command=lambda: clic_en_boton(8))
+boton_9 = tk.Button(ventana, text="9", padx=20, pady=10, command=lambda: clic_en_boton(9))
+boton_0 = tk.Button(ventana, text="0", padx=20, pady=10, command=lambda: clic_en_boton(0))
+
+boton_sumar = tk.Button(ventana, text="+", padx=20, pady=10, bg="black", command=lambda: clic_en_boton("+"))
+boton_restar = tk.Button(ventana, text="-", padx=20, pady=10, bg="black", command=lambda: clic_en_boton("-"))
+boton_multiplicar = tk.Button(ventana, text="*", padx=20, pady=10, bg="black", command=lambda: clic_en_boton("*"))
+boton_dividir = tk.Button(ventana, text="/", padx=20, pady=10, bg="black", command=lambda: clic_en_boton("/"))
+boton_igual = tk.Button(ventana, text="=", padx=20, pady=10, bg="green", command=clic_en_igual)
+boton_borrar = tk.Button(ventana, text="C", padx=20, pady=10, bg="red", command=lambda: pantalla.delete(0, tk.END))
+
+boton_1.grid(row=1, column=0)
+boton_2.grid(row=1, column=1)
+boton_3.grid(row=1, column=2)
+boton_4.grid(row=2, column=0)
+boton_5.grid(row=2, column=1)
+boton_6.grid(row=2, column=2)
+boton_7.grid(row=3, column=0)
+boton_8.grid(row=3, column=1)
+boton_9.grid(row=3, column=2)
+boton_0.grid(row=4, column=0)
+boton_sumar.grid(row=1, column=3)
+boton_restar.grid(row=2, column=3)
+boton_multiplicar.grid(row=3, column=3)
+boton_dividir.grid(row=4, column=3)
+boton_igual.grid(row=4, column=2)
+boton_borrar.grid(row=4, column=1)
+ventana.mainloop()
